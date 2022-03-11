@@ -1,0 +1,78 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+
+    def config = rootProject.ext
+
+    compileSdk config.androidCompileSdkVersion
+
+    defaultConfig {
+        applicationId config.androidApplicationId
+
+        minSdkVersion config.androidMinSdkVersion
+        targetSdkVersion config.androidTargetSdkVersion
+
+        versionCode config.androidVersionCode
+        versionName config.androidVersionName
+
+
+        archivesBaseName = "$applicationId-v$versionCode($versionName)"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(':domain')
+    implementation project(':data')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    def deps = rootProject.ext
+
+    implementation kotlinStdLib
+
+    implementation deps.appCompat
+    implementation deps.appCompatResources
+    implementation deps.material
+    implementation deps.recyclerView
+    implementation deps.constraintLayout
+
+    implementation deps.moxy
+    implementation deps.moxyAppcompat
+    implementation deps.moxyMaterial
+    implementation deps.moxyKtx
+    kapt deps.moxyCompiler
+
+    implementation deps.rxAndroid
+
+    implementation deps.dagger
+    kapt deps.daggerCompiler
+
+    implementation deps.room
+    annotationProcessor deps.roomCompiler
+    kapt deps.roomCompiler
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+}

@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    def config = rootProject.ext
+
+    compileSdk config.androidCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion config.androidMinSdkVersion
+        targetSdkVersion config.androidTargetSdkVersion
+
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+
+    def deps = rootProject.ext
+
+    implementation kotlinStdLib
+
+    implementation deps.appCompat
+    implementation deps.rxJava
+
+    implementation deps.room
+    implementation deps.roomRx
+    annotationProcessor deps.roomCompiler
+    kapt deps.roomCompiler
+
+    implementation deps.retrofit
+    implementation deps.retrofitConverter
+    implementation deps.retrofitAdapter
+}

@@ -1,0 +1,55 @@
+ext {
+    javaVersion = JavaVersion.VERSION_11
+
+    //Android
+    androidBuildToolsVersion = "31.0.0"
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 31
+    androidCompileSdkVersion = 31
+
+    //support libraries
+    androidXVersion = "1.3.0"
+    googleMaterialVersion = "1.3.0"
+    recyclerViewVersion = "1.2.1"
+
+    constraintLayoutVersion = "2.1.1"
+    rxJavaVersion = "3.1.2"
+    rxAndroidVersion = "3.0.0"
+    rxPermissionsVersion = "0.12"
+    moxyVersion = "2.2.2"
+    daggerVersion = "2.40"
+    roomVersion = "2.3.0"
+
+}
+
+ext {
+    kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
+    appCompat = "androidx.appcompat:appcompat:$androidXVersion"
+    appCompatResources = "androidx.appcompat:appcompat-resources:$androidXVersion"
+    material = "com.google.android.material:material:$googleMaterialVersion"
+    recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+    rxJava = "io.reactivex.rxjava3:rxjava:$rxJavaVersion"
+    rxAndroid = "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
+
+    moxy = "com.github.moxy-community:moxy:$moxyVersion"
+    moxyCompiler = "com.github.moxy-community:moxy-compiler:$moxyVersion"
+    moxyAppcompat = "com.github.moxy-community:moxy-androidx:$moxyVersion"
+    moxyMaterial = "com.github.moxy-community:moxy-material:$moxyVersion"
+    moxyKtx = "com.github.moxy-community:moxy-ktx:$moxyVersion"
+
+    dagger = "com.google.dagger:dagger:$daggerVersion"
+    daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    room = "androidx.room:room-runtime:$roomVersion"
+    roomRx = "androidx.room:room-rxjava3:$roomVersion"
+    roomCompiler = "androidx.room:room-compiler:$roomVersion"
+
+    retrofit =  "com.squareup.retrofit2:retrofit:2.9.0"
+    retrofitConverter = "com.squareup.retrofit2:converter-gson:2.9.0"
+    retrofitAdapter = "com.squareup.retrofit2:adapter-rxjava3:2.9.0"
+
+
+}
