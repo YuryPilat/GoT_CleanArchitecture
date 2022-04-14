@@ -1,2 +1,2 @@
 # GoT_CleanArchitecture
-A brief example of Clean Architecture, RxJava, Room, Retrofit, Dagger
+A brief example of Clean Architecture, MVP, Moxy, RxJava, Room, Retrofit, Dagger2
